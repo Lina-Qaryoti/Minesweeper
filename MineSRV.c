@@ -200,8 +200,8 @@ void StartGame(int connfd)
 		for(int i=0;i<10;i++)
 		BoardCli[Mines[i][0]][Mines[i][1]]='*';		
 		End=1;
-		result[0]=End;
-		result[1]=CorrectFlags;
+		result[0]=End;//if game is over
+		result[1]=CorrectFlags;//number of placed correct flags
 		Write(connfd,result,sizeof(result));
 		EndGame(connfd,BoardCli);	
 		printf("User Lost \n");

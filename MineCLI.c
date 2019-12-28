@@ -96,12 +96,12 @@ void StartGame(int sockfd)
 	RecvBoard(sockfd,Board);
 	PrintBoard(Board);
 	MakeMove(sockfd,Board);
-	if(Flags==0)
+	n=read(sockfd,res,sizeof(res));
+	if(Flags==0 && res[1]!=10)
 	{	
 		printf("Flags Exceeded, you lose!\n");
 		return;
 	}
-	n=read(sockfd,res,sizeof(res));
 	}
 	//print if you win or lose
 	RecvBoard(sockfd,Board);
